@@ -1,0 +1,11 @@
+{
+  "name": "iotivity",
+  "_release": "6a49412877",
+  "_resolution": {
+    "type": "commit",
+    "commit": "6a49412877aed68effcaee9e5d2210f1a173e570"
+  },
+  "_source": "https://gerrit.iotivity.org/gerrit/iotivity.git",
+  "_target": "6a49412877aed68effcaee9e5d2210f1a173e570",
+  "_originalSource": "https://gerrit.iotivity.org/gerrit/iotivity.git"
+}

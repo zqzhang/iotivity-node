@@ -21,6 +21,6 @@
 		"tests"
 	],
 	"devDependencies": {
-		"iotivity": "https://gerrit.iotivity.org/gerrit/iotivity.git#0.9.0"
+		"iotivity": "https://gerrit.iotivity.org/gerrit/iotivity.git#6a49412877aed68effcaee9e5d2210f1a173e570"
 	}
 }

@@ -1,17 +1,22 @@
 {
-	"variables": {
-		"IOTIVITY_PATH": '<!(echo "$IOTIVITY_PATH")',
-		"LIBOCTBSTACK_PATH": '<!(dirname $( find "$IOTIVITY_PATH/out" -name liboctbstack.so -print -quit ))'
-	},
 	"target_defaults": {
+		"actions": [
+			{
+				"action_name": "csdk_scons",
+				"inputs": [ "bower_components/iotivity/resource/csdk" ],
+				"outputs": [ "bower_components/iotivity/out" ],
+				"action": [ "sh", "do-scons.sh", "<(PRODUCT_DIR)" ]
+			}
+		],
 		"include_dirs": [
 			"<!(node -e \"require('nan')\")",
-			"<( IOTIVITY_PATH )/resource/csdk/stack/include",
-			"<( IOTIVITY_PATH )/resource/csdk/ocsocket/include"
+			"bower_components/iotivity/resource/csdk/stack/include",
+			"bower_components/iotivity/resource/csdk/ocsocket/include"
 		],
 		"libraries": [
-			'<(LIBOCTBSTACK_PATH)/liboctbstack.so',
-			'-Wl,-rpath,<(LIBOCTBSTACK_PATH)',
+			"<(PRODUCT_DIR)/liboctbstack.a",
+			"<(PRODUCT_DIR)/libconnectivity_abstraction.a",
+			"<(PRODUCT_DIR)/libcoap.a"
 		],
 	},
 	"targets": [
