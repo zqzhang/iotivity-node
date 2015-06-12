@@ -24,7 +24,7 @@ if test "x$1x" = "x--testonlyx"; then
 fi
 
 npm prune --production &&
-cp -a AUTHORS.txt index.js MIT-LICENSE.txt node_modules README.md dist/iotivity &&
+cp -a AUTHORS.txt lowlevel.js index.js MIT-LICENSE.txt node_modules README.md dist/iotivity &&
 mkdir -p dist/iotivity/build/Release &&
 cp build/Release/iotivity.node dist/iotivity/build/Release &&
 cd dist &&
