@@ -14,7 +14,6 @@ using namespace v8;
 
 void InitConstants(Handle<Object> exports) {
   // ocstackconfig.h: Stack configuration
-  SET_CONSTANT_MEMBER(exports, Number, DEV_ADDR_SIZE_MAX);
   SET_CONSTANT_MEMBER(exports, Number, MAX_CB_TIMEOUT_SECONDS);
   SET_CONSTANT_MEMBER(exports, Number, MAX_CONTAINED_RESOURCES);
   SET_CONSTANT_MEMBER(exports, Number, MAX_HEADER_OPTION_DATA_LENGTH);
@@ -22,11 +21,12 @@ void InitConstants(Handle<Object> exports) {
   SET_CONSTANT_MEMBER(exports, Number, MAX_MANUFACTURER_NAME_LENGTH);
   SET_CONSTANT_MEMBER(exports, Number, MAX_MANUFACTURER_URL_LENGTH);
   SET_CONSTANT_MEMBER(exports, Number, MAX_QUERY_LENGTH);
-  SET_CONSTANT_MEMBER(exports, Number, MAX_REQUEST_LENGTH);
-  SET_CONSTANT_MEMBER(exports, Number, MAX_RESPONSE_LENGTH);
   SET_CONSTANT_MEMBER(exports, Number, MAX_URI_LENGTH);
 
   // octypes.h: Definitions
+  SET_CONSTANT_MEMBER(exports, Number, CT_ADAPTER_SHIFT);
+  SET_CONSTANT_MEMBER(exports, Number, CT_MASK_ADAPTER);
+  SET_CONSTANT_MEMBER(exports, Number, CT_MASK_FLAGS);
   SET_CONSTANT_MEMBER(exports, Number, MAX_ADDR_STR_SIZE);
   SET_CONSTANT_MEMBER(exports, Number, MAX_IDENTITY_SIZE);
   SET_CONSTANT_MEMBER(exports, Number, MAX_REP_ARRAY_DEPTH);
@@ -37,6 +37,7 @@ void InitConstants(Handle<Object> exports) {
   SET_CONSTANT_MEMBER(exports, Number, OC_MAX_PRESENCE_TTL_SECONDS);
   SET_CONSTANT_MEMBER(exports, Number, OC_MULTICAST_PORT);
   SET_CONSTANT_MEMBER(exports, String, OC_DATA_MODEL_VERSION);
+  SET_CONSTANT_MEMBER(exports, String, OC_MULTICAST_DISCOVERY_URI);
   SET_CONSTANT_MEMBER(exports, String, OC_MULTICAST_IP);
   SET_CONSTANT_MEMBER(exports, String, OC_MULTICAST_PREFIX);
   SET_CONSTANT_MEMBER(exports, String, OC_QUERY_SEPARATOR);
@@ -63,6 +64,7 @@ void InitConstants(Handle<Object> exports) {
   SET_CONSTANT_MEMBER(exports, String, OC_RSRVD_MFG_URL);
   SET_CONSTANT_MEMBER(exports, String, OC_RSRVD_MODEL_NUM);
   SET_CONSTANT_MEMBER(exports, String, OC_RSRVD_NONCE);
+  SET_CONSTANT_MEMBER(exports, String, OC_RSRVD_OC);
   SET_CONSTANT_MEMBER(exports, String, OC_RSRVD_OS_VERSION);
   SET_CONSTANT_MEMBER(exports, String, OC_RSRVD_PAYLOAD);
   SET_CONSTANT_MEMBER(exports, String, OC_RSRVD_PLATFORM_ID);

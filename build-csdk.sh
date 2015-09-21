@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CSDK_REVISION="0.9.2"
+CSDK_REVISION="1.0.0-RC1"
 
 if test "x$1x" = "x--debugx"; then
 	SCONS_FLAGS="RELEASE=False"
@@ -21,8 +21,9 @@ cd ./depbuild || exit 1
 	cd iotivity* || exit 1
 
 		# iotivity wants us to clone this before it'll do anything
-		git clone https://github.com/01org/tinycbor.git extlibs/tinycbor/tinycbor
-		scons $SCONS_FLAGS liboctbstack libconnectivity_abstraction libcoap c_common libocsrm || { cat config.log; exit 1; }
+		git clone https://github.com/01org/tinycbor.git extlibs/tinycbor/tinycbor || exit 1
+		git clone https://github.com/jbeder/yaml-cpp.git extlibs/yaml/yaml || exit 1
+		JAVA_HOME=/ scons $SCONS_FLAGS liboctbstack libconnectivity_abstraction libcoap c_common libocsrm || { cat config.log; exit 1; }
 		PREFIX="$(pwd)/../../deps/iotivity" NO_PC="true" "$(pwd)/../../install.sh" || exit 1
 
 cd ../../ || exit 1

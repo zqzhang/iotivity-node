@@ -21,12 +21,16 @@
 				],
 				"cflags": [
 					'<!@(echo "-I$(pwd)/deps/iotivity/include/iotivity/resource/csdk/stack/include")',
-					'<!@(echo "-I$(pwd)/deps/iotivity/include/iotivity/resource/csdk/ocrandom/include")'
+					'<!@(echo "-I$(pwd)/deps/iotivity/include/iotivity/resource/csdk/ocrandom/include")',
+					'<!@(echo "-I$(pwd)/deps/iotivity/include/iotivity/resource/c_common")',
+					'-DTCP_ADAPTER'
 				],
 				"xcode_settings": {
 					"OTHER_CFLAGS": [
 						'<!@(echo "-I$(pwd)/deps/iotivity/include/iotivity/resource/csdk/stack/include")',
-						'<!@(echo "-I$(pwd)/deps/iotivity/include/iotivity/resource/csdk/ocrandom/include")'
+						'<!@(echo "-I$(pwd)/deps/iotivity/include/iotivity/resource/csdk/ocrandom/include")',
+						'<!@(echo "-I$(pwd)/deps/iotivity/include/iotivity/resource/c_common")',
+						'-DTCP_ADAPTER'
 					]
 				}
 			} ],

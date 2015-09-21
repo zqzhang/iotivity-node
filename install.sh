@@ -33,8 +33,10 @@ INCLUDEDIR="${PREFIX}/include"
 
 OCTB_STACK_DIR=resource/csdk/stack
 OCTB_RANDOM_DIR=resource/csdk/ocrandom
+OCTB_CCOMMON_DIR=resource/c_common
 OCTB_STACK_INCLUDEDIR=iotivity/${OCTB_STACK_DIR}/include
 OCTB_RANDOM_INCLUDEDIR=iotivity/${OCTB_RANDOM_DIR}/include
+OCTB_CCOMMON_INCLUDEDIR=iotivity/${OCTB_CCOMMON_DIR}
 
 # Compute where we will actually put the files. This part of the code honours DESTDIR. DESTDIR
 # should not be used in the construction of any other variable such as LIBDIR or INCLUDEDIR.
@@ -60,6 +62,9 @@ touch "${ACTUAL_INCLUDEDIR}/${OCTB_STACK_INCLUDEDIR}"/logger.h
 mkdir -p "${ACTUAL_INCLUDEDIR}/iotivity/${OCTB_RANDOM_DIR}" || exit 1
 cp -a "${SOURCE}/${OCTB_RANDOM_DIR}/include" "${ACTUAL_INCLUDEDIR}/${OCTB_RANDOM_INCLUDEDIR}" || exit 1
 
+mkdir -p "${ACTUAL_INCLUDEDIR}/iotivity/${OCTB_CCOMMON_DIR}" || exit 1
+cp -a "${SOURCE}/${OCTB_CCOMMON_DIR}/platform_features.h" "${ACTUAL_INCLUDEDIR}/${OCTB_CCOMMON_INCLUDEDIR}" || exit 1
+
 if test "x${NO_PC}x" = "xx"; then
   mkdir -p "${ACTUAL_LIBDIR}/pkgconfig"
   cat octbstack.pc.in | \
@@ -69,5 +74,6 @@ if test "x${NO_PC}x" = "xx"; then
       -e "s!@INCLUDEDIR@!${INCLUDEDIR}!g" \
       -e "s!@OCTB_STACK_INCLUDEDIR@!${OCTB_STACK_INCLUDEDIR}!g" \
       -e "s!@OCTB_RANDOM_INCLUDEDIR@!${OCTB_RANDOM_INCLUDEDIR}!g" \
+      -e "s!@OCTB_CCOMMON_INCLUDEDIR@!${OCTB_CCOMMON_INCLUDEDIR}!g" \
     > "${ACTUAL_LIBDIR}/pkgconfig/octbstack.pc"
 fi
