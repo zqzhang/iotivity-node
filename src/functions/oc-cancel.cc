@@ -38,5 +38,5 @@ NAN_METHOD(bind_OCCancel) {
 
   NanReturnValue(NanNew<Number>(
       OCCancel(handle, (OCQualityOfService)args[1]->Uint32Value(),
-               headerOptions, numberOfOptions)));
+               (numberOfOptions > 0 ? headerOptions : 0), numberOfOptions)));
 }

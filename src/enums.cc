@@ -22,6 +22,7 @@ static Local<Object> bind_OCTransportAdapter() {
   SET_CONSTANT_MEMBER(returnValue, Number, OC_ADAPTER_IP);
   SET_CONSTANT_MEMBER(returnValue, Number, OC_ADAPTER_GATT_BTLE);
   SET_CONSTANT_MEMBER(returnValue, Number, OC_ADAPTER_RFCOMM_BTEDR);
+  SET_CONSTANT_MEMBER(returnValue, Number, OC_ADAPTER_TCP);
 
   return returnValue;
 }
@@ -100,6 +101,7 @@ static Local<Object> bind_OCMode() {
   SET_CONSTANT_MEMBER(returnValue, Number, OC_CLIENT);
   SET_CONSTANT_MEMBER(returnValue, Number, OC_SERVER);
   SET_CONSTANT_MEMBER(returnValue, Number, OC_CLIENT_SERVER);
+  SET_CONSTANT_MEMBER(returnValue, Number, OC_GATEWAY);
 
   return returnValue;
 }
